@@ -6,8 +6,34 @@ namespace HelloWorld
 {
     class Game
     {
+        string CombineWords(string word1, string word2)
+        {
+            string result = word1 + word2;
+            return result;
+        }
+        int SumTwoNumbers(int num1, int num2)
+        {
+            int result = num1 + num2;
+            return result;
+
+        }
+
+        void PrintStats(string name, float playerHealth, int damage, int level, string role, string race, int defense)
+        {
+
+                Console.WriteLine("player name: " + name);
+                Console.WriteLine("player health: " + playerHealth);
+                Console.WriteLine("player damage: " + damage);
+                Console.WriteLine("player level: " + level);
+                Console.WriteLine("player role: " + role);
+                Console.WriteLine("Player Defense: " + defense);
+                Console.WriteLine("Player Race: " + race);
+                Console.WriteLine("Press any key to continue. ");
+                Console.ReadKey();
+        }
         public void Run()
         {
+            string newWord = CombineWords("Peanut", "Butter");
             bool gameOver = false;
             while (gameOver == false)
             {
@@ -56,13 +82,18 @@ namespace HelloWorld
 
                 Console.WriteLine("Dungeon Master:" + "Welcome, " + name + "!" + "   Please input role");
                 Console.WriteLine("Press 1 for Warden role");
+                Console.WriteLine("Warden is a storyteller who can control plant, communite with animal and summon powerful ice spell!");
+                Console.WriteLine("");
                 Console.WriteLine("Press 2 for Necromancer role");
+                Console.WriteLine("Necromancer are disgraced mage who rise/reanimate corpse by using dark magic. Also They can siphon enemy's health!");
+                Console.WriteLine("");
+                Console.WriteLine("Press 3 for Dragon Guard");
+                Console.WriteLine("Dragon Guard was a exiled bodyguard of empereror and branded as failure for not protecting empereror. They uses martial art to improve stregth and defense. And learned ancient techquire. They can summon fire and earth spell");
                 char input = Console.ReadKey().KeyChar;
-                Console.WriteLine();
                 //we can also use a while loop here. We can loop until the player puts in a valid input
                 //The condition would look like this : while(input != '1' && input!= '2')
                 //Try to get this working and I'll be back in a bit to check on you
-                while (input != '1' && input != '2')
+                while (input != '1' && input != '2' && input != '3')
                 Console.WriteLine();
                 if (input == '1')
                 {
@@ -74,6 +105,11 @@ namespace HelloWorld
                     damage = 40;
                     role = "Necromancer";
                 }
+                else if (input == '3')
+                {
+                    defense = 80;
+                    role = "Dragon Guard";
+                }
                 else
                 {
                     Console.WriteLine("Dungeon Master:" + "Invalid input. Pick your role please," + name);
@@ -84,10 +120,19 @@ namespace HelloWorld
 
                 Console.WriteLine("Dungeon Master: " + "What is your race, " + name + "?");
                 Console.WriteLine("Press 1 for Dark Elf");
+                Console.WriteLine("Dark elf Or Dunmer was former Chimer which transformed. Dark Elves are native to volcanic ashland. They may distrust to stranger. They has interesting Dark elves history. They are so intellight");
+                Console.WriteLine("");
                 Console.WriteLine("Press 2 for Human");
+                Console.WriteLine("Human are Homo Saprian and goddamn stubborn. They have very good adaptivty and coorptive. But may be cruel and selfish.");
+                Console.WriteLine("");
                 Console.WriteLine("Press 3 for Dwarf");
+                Console.WriteLine("Dwarf are legendary blacksmith and stubborn person who live underground. They are good at weapon and tool. But, They may be drunk and lazy. Who care?");
+                Console.WriteLine("");
                 Console.WriteLine("Press 4 for Khajit(Cat men)");
+                Console.WriteLine("Khajits are a cat humaniond race who live jungle. They are very so agile. Well, To be honest. They are all really, really huge dick or bitch who doesn't give crap and are lazy as crazy. They are conquered many time by high elves but, Khajits will fight back and defeat.");
+                Console.WriteLine("");
                 Console.WriteLine("Press 5 for Orc");
+                Console.WriteLine("Orc are legendary warrior and best blacksmith. They were former high elves and cursed by trickster devil. They may be igronment But, They never igrone... battle for glory and pride... Orc are surpisedly good at blacksmith because they has dark green ore which has higher heat point(It means it is harder to melt.) They uses primal blacksmith techiqure. But, did learned from ancient Dragon Guard");
                 input = Console.ReadKey().KeyChar;
                 while (input != '1' && input != '2' && input != '3' && input != '4' && input != '5');
                 Console.WriteLine();
@@ -112,6 +157,7 @@ namespace HelloWorld
                 {
                     race = "orc";
                 }
+                PrintStats(name, playerHealth, damage, level, role, race, defense);
                 Console.Clear();
 
                 Console.WriteLine("player name: " + name);
