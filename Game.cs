@@ -6,47 +6,20 @@ namespace HelloWorld
 {
     class Game
     {
-        string CombineWords(string word1, string word2)
-        {
-            string result = word1 + word2;
-            return result;
-        }
-        int SumTwoNumbers(int num1, int num2)
-        {
-            int result = num1 + num2;
-            return result;
-
-        }
-
-        void PrintStats(string name, float playerHealth, int damage, int level, string role, string race, int defense)
-        {
-
-                Console.WriteLine("player name: " + name);
-                Console.WriteLine("player health: " + playerHealth);
-                Console.WriteLine("player damage: " + damage);
-                Console.WriteLine("player level: " + level);
-                Console.WriteLine("player role: " + role);
-                Console.WriteLine("Player Defense: " + defense);
-                Console.WriteLine("Player Race: " + race);
-                Console.WriteLine("Press any key to continue. ");
-                Console.ReadKey();
-        }
         public void Run()
         {
-            string newWord = CombineWords("Peanut", "Butter");
             bool gameOver = false;
             while (gameOver == false)
             {
 
                 float playerHealth = 100.0f;
                 float healthRegen = 20;
-                bool maxlevelreached = false;
                 int damage = 20;
                 int defense = 40;
                 int level = 1;
                 bool ready = true;
                 int number = 0;
-                while (number < 20)
+                while (number < 40)
                 {
                     number++;
                 }
@@ -93,9 +66,11 @@ namespace HelloWorld
                 //we can also use a while loop here. We can loop until the player puts in a valid input
                 //The condition would look like this : while(input != '1' && input!= '2')
                 //Try to get this working and I'll be back in a bit to check on you
-                while (input != '1' && input != '2' && input != '3')
-                Console.WriteLine();
+                
+                while (input != '1' && input != '2' && input != '3')    
+                Console.WriteLine("");
                 if (input == '1')
+            
                 {
                     playerHealth = 200;
                     role = "Warden";
@@ -112,7 +87,7 @@ namespace HelloWorld
                 }
                 else
                 {
-                    Console.WriteLine("Dungeon Master:" + "Invalid input. Pick your role please," + name);
+                    Console.WriteLine("                                                                                                                        Dungeon Master:" + "Invalid input. Pick your role please," + name);
                     Console.ReadKey();
                 }
 
@@ -135,7 +110,6 @@ namespace HelloWorld
                 Console.WriteLine("Orc are legendary warrior and best blacksmith. They were former high elves and cursed by trickster devil. They may be igronment But, They never igrone... battle for glory and pride... Orc are surpisedly good at blacksmith because they has dark green ore which has higher heat point(It means it is harder to melt.) They uses primal blacksmith techiqure. But, did learned from ancient Dragon Guard");
                 input = Console.ReadKey().KeyChar;
                 while (input != '1' && input != '2' && input != '3' && input != '4' && input != '5');
-                Console.WriteLine();
                 if (input == '1')
                 {
                     race = "Dark Elf";
@@ -157,7 +131,10 @@ namespace HelloWorld
                 {
                     race = "orc";
                 }
-                PrintStats(name, playerHealth, damage, level, role, race, defense);
+                else
+                {
+                    Console.WriteLine("Invaild input. Please, choose your race.");
+                }
                 Console.Clear();
 
                 Console.WriteLine("player name: " + name);
@@ -214,7 +191,6 @@ namespace HelloWorld
                     Console.WriteLine("player damage: " + damage);
                     Console.WriteLine("player level: " + level);
                     Console.WriteLine("player role: " + role);
-                    Console.WriteLine("player defense: " + defense);
                     //Enemy stat
                     Console.WriteLine("Bandit's Name: No-No Dancer");
                     Console.WriteLine("Bandit Health: " + banditHealth);
@@ -232,13 +208,12 @@ namespace HelloWorld
                         }
                         else if (input == '2')
                         {
-                            defense -= banditDamage;
-                            Console.WriteLine("You try poses but it succesed raised your guard. Bandit yeeted rock to you" + "Your shield took" + banditDamage + "damage");
+                            playerHealth -= banditDamage;
+                            Console.WriteLine("You try poses but it succesed raised your guard. Bandit yeeted rock to you" + "Your health took" + banditDamage + "damage");
                             continue;
                         }
                     }
                 }
-                
 
                 
                 Console.Clear();
